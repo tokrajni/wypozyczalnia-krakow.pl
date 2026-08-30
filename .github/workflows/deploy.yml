@@ -1,0 +1,111 @@
+name: Deploy to MyDevil
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      SSH_KEY: ${{ secrets.DEVIL_SSH_KEY }}
+      SSH_USER: "tomekrr84"
+
+    steps:
+      - name: Get the IP address of the GitHub runner
+        run: |
+          # Print the public IP of the GitHub Actions runner
+          echo "GitHub Actions Runner Public IP:"
+          curl -s https://api.ipify.org
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Setup SSH
+        run: |
+          echo "SSH Username: $SSH_USER"
+          echo "SSH Key (first 20 chars): ${SSH_KEY:0:20}..."
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_github_actions
+          chmod 600 ~/.ssh/id_github_actions
+
+      - name: Deploy to MyDevil
+        uses: appleboy/ssh-action@master
+        with:
+          host: s42.mydevil.net
+          username: tomekrr84
+          key: |
+            $SSH_KEY
+          script: |
+            DOMAIN_NAME=wypozyczalnia-krakow.pl
+            TARGET_DIR=/home/tomekrr84/domains/$DOMAIN_NAME/public_html
+            pwd
+            cd ~/domains/$DOMAIN_NAME/public_html
+            pwd
+            echo $PATH
+            export PATH=$PATH:/home/tomekrr84/.npm-global/bin
+            echo $PATH
+            html-minifier --version
+            cleancss --version
+            terser --version
+
+            echo "🔍 Sprawdzanie lokalizacji..."
+            echo "Bieżący katalog: $PWD"
+            echo "Oczekiwany katalog: $TARGET_DIR"
+
+            if [ "$PWD" = "$TARGET_DIR" ]; then
+              echo "✅ Znajdujesz się w katalogu docelowym – kontynuuję"
+
+              if [ ! -d .git ]; then
+                echo "📦 Brak repozytorium Git – klonuję..."
+                rm -rf ./* .[.]* || true
+                git clone git@github.com:tokrajni/$DOMAIN_NAME.git .
+              else
+                echo "🔄 Repozytorium istnieje – wykonuję git pull..."
+                git reset --hard
+                git pull
+              fi
+
+              echo "+------------------------+"
+              echo "| Minifying HTML/CSS/JS |"
+              echo "+------------------------+"
+
+              # Minify HTML files
+              find . -name "*.html" -exec sh -c '
+                for file do
+                  html-minifier --collapse-whitespace --remove-comments --minify-css true --minify-js true -o "$file" "$file"
+                  echo "Minified $file"
+                done
+              ' sh {} +
+
+              # Minify CSS files
+              find . -name "*.css" ! -name "*.min.css" -exec sh -c '
+                for file do
+                  cleancss -o "$file" "$file"
+                  echo "Minified $file"
+                done
+              ' sh {} +
+
+              # Minify JS files
+              find . -name "*.js" ! -name "*.min.js" -exec sh -c '
+                for file do
+                  terser "$file" -c -m -o "$file"
+                  echo "Minified $file"
+                done
+              ' sh {} +
+
+              # MyDevil cache purge
+              devil www options $DOMAIN_NAME cache purge
+
+            else
+              echo "❌ Nie jesteś w katalogu docelowym!"
+              echo "Zabezpieczenie aktywne – operacja przerwana."
+              exit 1
+            fi

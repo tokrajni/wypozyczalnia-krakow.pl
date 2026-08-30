@@ -1,0 +1,3 @@
+User-agent: * 
+Allow: / 
+Sitemap: https://wypozyczalnia-krakow.pl/sitemap.xml 
