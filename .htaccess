@@ -1,0 +1,31 @@
+RewriteEngine On
+
+# Przekierowanie z HTTPS www → HTTPS bez www
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} ^www\.wypozyczalnia-krakow\.pl$ [NC]
+RewriteRule ^(.*)$ https://wypozyczalnia-krakow.pl/$1 [R=301,L]
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML files: cache for 1 hour (browser), 30 days (shared cache)
+  <FilesMatch "\.(html?)$">
+    Header set Cache-Control "max-age=3600, s-maxage=2592000, public"
+  </FilesMatch>
+
+  # Images, JS, CSS: cache for 1 year
+  <FilesMatch "\.(png|jpe?g|webp|js|css)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Ensure headers module is on
+  <FilesMatch "\.(html?)$">
+    Header set Cache-Control "max-age=3600, s-maxage=2592000, public"
+  </FilesMatch>
+
+  <FilesMatch "\.(png|jpe?g|webp|js|css)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+</IfModule>
