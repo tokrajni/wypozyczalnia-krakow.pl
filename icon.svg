@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Ciemne tło z łagodnym gradientem -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004085" />
+      <stop offset="100%" stop-color="#001d3d" />
+    </linearGradient>
+  </defs>
+
+  <!-- Tło: Zaokrąglony kwadrat -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGrad)" />
+
+  <!-- Grupa liter WK o wysokim kontraście -->
+  <g font-family="'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="230">
+    <!-- Litera W (Czysta biel) -->
+    <text x="50" y="325" fill="#ffffff">W</text>
+    <!-- Litera K (Wyrazisty żółty/jaskrawy - świetny kontrast) -->
+    <text x="255" y="325" fill="#ffc107">K</text> 
+  </g>
+
+  <!-- Akcent: Zielona ikonka Pinezki / Lokalizacji (Kraków) -->
+  <path d="M 400 110 C 370 110 345 135 345 165 C 345 210 400 260 400 260 C 400 260 455 210 455 165 C 455 135 430 110 400 110 Z M 400 185 C 388.9 185 380 176.1 380 165 C 380 153.9 388.9 145 400 145 C 411.1 145 420 153.9 420 165 C 420 176.1 411.1 185 400 185 Z" fill="#25d366"/>
+</svg>

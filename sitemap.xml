@@ -2,8 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
     <url> 
         <loc>https://wypozyczalnia-krakow.pl</loc> 
-        <lastmod>30.08.2026</lastmod> 
-        <changefreq>monthly</changefreq> 
-        <priority>1.0</priority> 
+        <lastmod>01.09.2026</lastmod> 
+    </url> 
+    <url> 
+        <loc>https://wypozyczalnia-krakow.pl/wypozyczenie-bagaznika-dachowego-krakow.html</loc> 
+        <lastmod>01.09.2026</lastmod> 
     </url> 
 </urlset> 

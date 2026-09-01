@@ -1,15 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href="https://wypozyczalnia-krakow.pl" />
-    <title>wypozyczalnia-krakow.pl</title>
+    <link rel="icon" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png" />
+    <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png" />
+    <title>Wypożyczalnia Sprzętu i Narzędzi Kraków | wypozyczalnia-krakow.pl</title>
+    <meta name="description" content="Tania wypożyczalnia sprzętu w Krakowie. Boxy dachowe, odkurzacze piorące, zagęszczarki i wiertnice. Odbiór osobisty lub dostawa busem." />
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
   </head>
   <body>
-    <h1>Strona w budowie 🚧⏳</h1>
-    <p>Nasza nowa witryna jest w trakcie tworzenia. Wkrótce wracamy!</p>
+    <!-- NAGŁÓWEK / NAWIGACJA -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">wypozyczalnia-krakow.pl</a>
+        <a href="tel:+48000000000" class="btn btn-phone">📞 Zadzwoń: +48 789 375 185</a>
+      </div>
+    </header>
+
+    <!-- BANER GŁÓWNY (HERO) -->
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Wypożyczalnia Sprzętu i Narzędzi w Krakowie</h1>
+        <p>Potrzebujesz sprzętu na wyjazd, do ogrodu lub na budowę? Wypożyczaj tanio, wygodnie i bez konieczności kupowania na własność.</p>
+        <div class="hero-badges">
+          <span>📍 Odbiór: Węgrzce / Kraków</span>
+          <span>🚚 Dostawa naszym busem</span>
+          <span>🤝 Elastyczne godziny</span>
+        </div>
+        <a href="#oferta" class="btn btn-primary btn-large">Zobacz dostępny sprzęt</a>
+      </div>
+    </section>
+
+    <!-- KATALOG SPRZĘTU (OFERTA) -->
+    <main class="container catalog-section" id="oferta">
+      <h2>Dostępny sprzęt na wynajem</h2>
+      <p class="section-subtitle">Wybierz interesujący Cię przedmiot, aby zobaczyć szczegóły i cenę</p>
+
+      <div class="product-grid">
+        <!-- KAFELEK 1: BOX DACHOWY -->
+        <div class="product-card">
+          <div class="card-image">
+            <img src="images/bagaznik-dachowy/thule-pacific-780-1.jpg" alt="Box dachowy Thule Pacific 780" />
+            <span class="card-badge">Turystyka</span>
+          </div>
+          <div class="card-body">
+            <h3>Bagażnik dachowy Thule Pacific 780</h3>
+            <p class="card-text">Pojemność 420L, obustronne otwieranie, szybki montaż FastGrip. Idealny na wakacje i narty.</p>
+            <div class="card-footer">
+              <div class="card-price"> <span>20 zł</span> <small>/ doba</small> </div>
+              <a href="wypozyczenie-bagaznika-dachowego-krakow.html" class="btn btn-primary">Szczegóły</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- KAFELEK 2: ODKURZACZ GEORGE -->
+        <div class="product-card">
+          <div class="card-image">
+            <img src="images/george-1.jpg" alt="Odkurzacz piorący Numatic George" />
+            <span class="card-badge">Sprzątanie</span>
+          </div>
+          <div class="card-body">
+            <h3>Odkurzacz piorący Numatic George</h3>
+            <p class="card-text">Profesjonalne pranie tapicerki samochodowej, meblowej oraz dywanów. Chemia w zestawie.</p>
+            <div class="card-footer">
+              <div class="card-price">
+                <span>Zapytaj</span>
+              </div>
+              <a href="#" class="btn btn-primary">Szczegóły</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- KAFELEK 3: ZAGĘSZCZARKA -->
+        <div class="product-card">
+                <div class="card-image">
+                    <img src="images/zageszczarka-1.jpg" alt="Zagęszczarka płytowa 50kg">
+                    <span class="card-badge">Budowa i Ogród</span>
+                </div>
+                <div class="card-body">
+                    <h3>Zagęszczarka płytowa 50 kg</h3>
+                    <p class="card-text">Kompaktowa zagęszczarka spalinowa. W zestawie guma do kostki brukowej oraz wózek.</p>
+                    <div class="card-footer">
+                        <div class="card-price">
+                            <span>Zapytaj</span>
+                        </div>
+                        <a href="#" class="btn btn-primary">Szczegóły</a>
+                    </div>
+                </div>
+            </div>
+
+        <!-- KAFELEK 4: WIERTNICA -->
+        <div class="product-card">
+          <div class="card-image">
+            <img src="images/wiertnica-1.jpg" alt="Wiertnica do gleby spalinowa" />
+            <span class="card-badge">Ogród</span>
+          </div>
+          <div class="card-body">
+            <h3>Wiertnica do gleby spalinowa</h3>
+            <p class="card-text">Mocna wiertnica do ogrodzeń i sadzenia drzewek. W zestawie wiertła o różnych średnicach.</p>
+            <div class="card-footer">
+              <div class="card-price">
+                <span>Zapytaj</span>
+              </div>
+              <a href="#" class="btn btn-primary">Szczegóły</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ZASADY ODBIORU I TRANSPORTU -->
+    <section class="info-section">
+      <div class="container">
+        <h2>Jak wygląda odbiór i dostawa?</h2>
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="info-icon">📍</div>
+            <h3>Odbiór osobisty</h3>
+            <p>Sprzęt odbierasz w <strong>Węgrzcach</strong> (tuż przy północnej granicy Krakowa, przy wjeździe od strony Al. 29 Listopada). Zapewniamy wygodne miejsce do załadunku oraz pomoc w montażu lub obsłudze.</p>
+            <p class="small-text">* Dokładny adres podajemy przy potwierdzeniu rezerwacji.</p>
+          </div>
+
+          <div class="info-box">
+            <div class="info-icon">🚚</div>
+            <h3>Dostawa busem pod drzwi</h3>
+            <p>Nie masz możliwości odbioru osobistego? Możemy dostarczyć zamówiony sprzęt na terenie Krakowa i okolicznych miejscowości.</p>
+            <p class="small-text">* Koszt i termin dostawy ustalany indywidualnie telefonicznie.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JAK TO DZIAŁA -->
+    <section class="steps-section container">
+      <h2>Wynajem w 3 prostych krokach</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Kontakt i Rezerwacja</h3>
+          <p>Zadzwoń lub napisz na WhatsApp. Potwierdzimy dostępność sprzętu w wybranym przez Ciebie terminie.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Odbiór i Instruktaż</h3>
+          <p>Odbierasz sprzęt w Węgrzcach lub przywozimy go do Ciebie. Spisujemy prostą umowę i wyjaśniamy działanie.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Zwrot i Rozliczenie</h3>
+          <p>Po zakończeniu pracy oddajesz sprzęt, rozliczamy kaucję i gotowe!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEKCJA KONTAKTOWA (CTA) -->
+    <section class="contact-cta container">
+      <div class="cta-box">
+        <h2>Chcesz zarezerwować sprzęt?</h2>
+        <p>Masz pytania dotyczące dostępności lub dostawy? Skontaktuj się z nami bezpośrednio!</p>
+        <div class="cta-buttons">
+          <a href="tel:+48789375185" class="btn btn-primary btn-large">📞 Zadzwoń: +48 789 375 185</a>
+          <a href="https://wa.me/48789375185" class="btn btn-whatsapp btn-large" target="_blank">💬 Napisz na WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STOPKA -->
+    <footer>
+      <div class="container footer-content">
+        <p>&copy; 2026 wypozyczalnia-krakow.pl – Wynajem sprzętu i narzędzi Kraków.</p>
+      </div>
+    </footer>
   </body>
 </html>
